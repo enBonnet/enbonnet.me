@@ -1,28 +1,43 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Me title="Ender Bonnet" subtitle="Página en construcción"/>
+    <div class="twitter-tl">
+      <Timeline class="tweets" :id="'enbonnet'" :sourceType="'profile'" :options="{ tweetLimit: '3', theme: 'dark' }"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Me from "./components/Me.vue";
+import Timeline from "vue-tweet-embed/timeline";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    Me,
+    Timeline
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+html {
+  background-image: url("./assets/santiago.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: #666666;
+}
+
+.twitter-tl {
+  margin-top: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.tweets {
+  width: 500px;
 }
 </style>
